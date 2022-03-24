@@ -1,7 +1,16 @@
 .App {
   text-align: center;
 }
-
+.movieList{
+  display: flex;
+   /* flex-direction:row */
+   
+}
+.movieList h1{
+  display: flex;
+   margin: 10px;
+   padding: 20px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
