@@ -5,7 +5,7 @@ const AddMovie = ({ movies, setMovies }) => {
   const [title, setTitle] = useState();
   const [rating, setRating] = useState();
   const [description, setDescription] = useState();
-  const [imgUrl, setImgUrl] = useState();
+  const [imgLink, setimgLink] = useState();
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
@@ -17,7 +17,7 @@ const AddMovie = ({ movies, setMovies }) => {
     setShow(false);
     setMovies([
       ...movies,
-      { id: Math.random(), movieName: title, rating: rating, imgUrl:imgUrl }
+      { id: Math.random(), movieName: title,Description:description, rating: rating, imgUrl:imgLink }
     ]);
   };
 
@@ -61,7 +61,7 @@ const AddMovie = ({ movies, setMovies }) => {
             placeholder="Poster Url"
             aria-label="Poster Url"
             onChange={(e) =>
-              setImgUrl(e.target.value )
+              setimgLink(e.target.value )
             }
           />
         </Modal.Body>
