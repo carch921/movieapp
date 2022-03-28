@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
 import MovieList from "./Components/MovieList";
+import AddMovie from "./Components/AddMovie";
+import NavBar from "./Components/NavBar";
 
 function App() {
+  const [search, setSearch] = useState("");
+  const [rate, setRate] = useState(1);
+
   const [movies, setMovies] = useState([
     {
       id: 1,
@@ -20,12 +25,27 @@ function App() {
         "In the ancient battle of Thermopylae, King Leonidas and 300 Spartans fight against Xerxes and his massive Persian army. They face insurmountable odds when they are betrayed by a Spartan reject.",
       rating: 9,
       imgUrl: "https://upload.wikimedia.org/wikipedia/en/5/5c/300poster.jpg",
-    }
+    },
   ]);
 
   return (
     <div className="App">
-      <MovieList movies={movies} setMovies={setMovies} />
+      <NavBar
+        movies={movies}
+        setMovies={setMovies}
+        search={search}
+        setSearch={setSearch}
+        rate={rate}
+        setRate={setRate}
+      />
+      <AddMovie movies={movies} setMovies={setMovies} />
+
+      <MovieList
+        movies={movies}
+        setMovies={setMovies}
+        rate={rate}
+        search={search}
+      />
     </div>
   );
 }

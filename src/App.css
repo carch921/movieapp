@@ -3,8 +3,7 @@
 }
 .movieList{
   display: flex;
-   /* flex-direction:row */
-   
+justify-content: space-around;   
 }
 .movieList h1{
   display: flex;
@@ -44,4 +43,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+.MovieCard{
+  border: rgb(48, 12, 12) solid 4px;
+  margin: auto;
 }
