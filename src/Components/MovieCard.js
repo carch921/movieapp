@@ -2,10 +2,11 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { IconContext } from "react-icons";
+import EditMovie from "./EditMovie";
 
 const MovieCard = ({
-  movie: { id, movieName, imgUrl, Description, rating },
-}) => {
+  movie,Edithandler}) => {
+    const { id, movieName, imgUrl, Description, rating }=movie
   return (
     <div className="MovieCard">
         <IconContext.Provider value={{ color: "gold" }}>
@@ -23,6 +24,7 @@ const MovieCard = ({
           )}
         </Card.Footer>
       </Card>
+      <EditMovie  movie={movie} Edithandler={Edithandler} />
       </IconContext.Provider>
 
     </div>

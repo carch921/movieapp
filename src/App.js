@@ -27,7 +27,11 @@ function App() {
       imgUrl: "https://upload.wikimedia.org/wikipedia/en/5/5c/300poster.jpg",
     },
   ]);
-
+const Edithandler=(id,editedMovie)=>{
+setMovies(
+  movies.map(movie=>movie.id==id?{...movie,...editedMovie}:movie)
+)
+}
   return (
     <div className="App">
       <NavBar
@@ -45,6 +49,7 @@ function App() {
         setMovies={setMovies}
         rate={rate}
         search={search}
+        Edithandler={Edithandler}
       />
     </div>
   );

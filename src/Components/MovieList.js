@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import MovieCard from "./MovieCard";
 
-const MovieList = ({ movies, setMovies, search, rate }) => {
+const MovieList = ({ movies, setMovies, search, rate, Edithandler }) => {
+
   return (
     <div className="movieList">
       {movies
         .filter(
-          (movie) =>
-            movie.movieName
+          (item) =>
+            item.movieName
               .toLowerCase()
               .includes(search.toLowerCase().trim()) &
-            (movie.rating >= rate)
+            (item.rating >= rate)
         )
-        .map((movie) => (
-          <MovieCard movie={movie} />
+        .map((item) => (
+          <MovieCard movie={item} Edithandler={Edithandler} />
         ))}
     </div>
   );

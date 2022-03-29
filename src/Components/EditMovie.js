@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Modal, Button, FormControl } from "react-bootstrap";
 
-const AddMovie = ({ movies, setMovies }) => {
-  const [title, setTitle] = useState();
-  const [rating, setRating] = useState();
-  const [description, setDescription] = useState();
-  const [imgLink, setimgLink] = useState();
+const EditMovie = ({ movie, Edithandler }) => {
+  const [title, setTitle] = useState(movie.movieName);
+  const [rate, setRate] = useState(movie.rating);
+  const [description, setDescription] = useState(movie.Description);
+  const [imgLink, setimgLink] = useState(movie.imgUrl);
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
@@ -13,68 +13,62 @@ const AddMovie = ({ movies, setMovies }) => {
   const handleShow = () => {
     setShow(true);
   };
-  const handleAdd = () => {
+  const handleEdit = () => {
     handleClose();
-    setMovies([
-      ...movies,
-      { id: Math.random(), movieName: title,Description:description, rating: rating, imgUrl:imgLink }
-    ]);
+    Edithandler(movie.id,{movieName: title,Description:description, rating: rate, imgUrl:imgLink})
+   
   };
 
   return (
     <div>
       <Button variant="primary" onClick={handleShow}>
-        Add movie{" "}
+        Edit movie{" "}
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>add movie</Modal.Title>
+          <Modal.Title>Edit movie</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <FormControl
             style={{ margin: "4px" }}
             placeholder="Movie title"
             aria-label="Movie title"
-            onChange={(e) =>
-              setTitle(e.target.value )
-            }
+            onChange={(e) => setTitle(e.target.value)}
+            defaultValue={title}
           />
           <FormControl
             style={{ margin: "4px" }}
             placeholder="Description"
             aria-label="Description"
-            onChange={(e) =>
-              setDescription(e.target.value )
-            }
+            onChange={(e) => setDescription(e.target.value)}
+            defaultValue={description}
           />
           <FormControl
             style={{ margin: "4px" }}
             placeholder="rating"
             aria-label="rating"
-            onChange={(e) =>
-              setRating(e.target.value )
-            }
+            onChange={(e) => setRate(e.target.value)}
+            defaultValue={rate}
           />
           <FormControl
             style={{ margin: "4px" }}
             placeholder="Poster Url"
             aria-label="Poster Url"
-            onChange={(e) =>
-              setimgLink(e.target.value )
-            }
+            onChange={(e) => setimgLink(e.target.value)}
+            defaultValue={imgLink}
           />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleAdd}>
-            add
+          <Button variant="primary" onClick={handleEdit}>
+            Edit
           </Button>
         </Modal.Footer>
       </Modal>
     </div>
   );
 };
-export default AddMovie;
+export default EditMovie;
