@@ -23,7 +23,7 @@ const AddMovie = ({ movies, setMovies }) => {
 
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="warning" onClick={handleShow}>
         Add movie{" "}
       </Button>
 

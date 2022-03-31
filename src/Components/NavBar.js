@@ -9,15 +9,25 @@ import {
 } from "react-bootstrap";
 import { FaRegStar } from "react-icons/fa";
 import { IconContext } from "react-icons";
+import AddMovie from "./AddMovie";
 
 const NavBar = ({ movies, setMovies, search, setSearch, rate, setRate }) => {
+  const styles={color:'orange'};
   return (
     <IconContext.Provider value={{ color: "gold" }}>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">
-            <h1>Movies</h1>
+        <Navbar.Brand href="/">
+            <h1>Home</h1>
           </Navbar.Brand>
+          <Navbar.Brand href="/movieslist">
+            <h1 style={styles} >Movies</h1>
+          </Navbar.Brand>
+         
+          <Navbar.Brand href="#">
+            <AddMovie movies={movies} setMovies={setMovies} />
+          </Navbar.Brand>
+
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
